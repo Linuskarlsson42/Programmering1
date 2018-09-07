@@ -15,6 +15,22 @@ public class Läxa {
 		System.out.println("gammal är du");
 		String ålder = input.nextLine();
 		
+		System.out.println("Vad är din adress?");
+		String adress = input.nextLine();
+		
+		System.out.println("Vad är ditt postnummer?");
+		String postnummer = input.nextLine();
+		
+		System.out.println("Vilken stad bor du i?");
+		String stad = input.nextLine();
+		
+		System.out.println("Vad är ditt telefonnummer");
+		String Telefonnummer = input.nextLine();
+		
+		System.out.println("Information:");
+		System.out.print ("Namn:"); System.out.print(namn);
+		
+		
 		
 		
 		
