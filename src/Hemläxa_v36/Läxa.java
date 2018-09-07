@@ -12,6 +12,11 @@ public class Läxa {
 		
 		String namn = input.nextLine();
 		
+		System.out.println("gammal är du");
+		String ålder = input.nextLine();
+		
+		
+		
 		
 		
 		
