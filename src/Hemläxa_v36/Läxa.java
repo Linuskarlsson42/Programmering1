@@ -8,7 +8,9 @@ public class Läxa {
 		
 		Scanner input = new Scanner (System.in);
 		
-		String namn = input.nextLine() 
+		String namn = input.nextLine();
+		System.out.println(namn);
+		
 		
 	}
 		
