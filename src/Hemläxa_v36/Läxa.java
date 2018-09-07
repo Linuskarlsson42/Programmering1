@@ -8,8 +8,12 @@ public class Läxa {
 		
 		Scanner input = new Scanner (System.in);
 		
+		System.out.println("vad heter du?");
+		
 		String namn = input.nextLine();
-		System.out.println(namn);
+		
+		
+		
 		
 		
 	}
