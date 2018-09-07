@@ -28,8 +28,15 @@ public class Läxa {
 		String Telefonnummer = input.nextLine();
 		
 		System.out.println("Information:");
-		System.out.print ("Namn:"); System.out.print(namn);
-		
+		System.out.print ("Namn:"); 
+		System.out.println(namn);
+		System.out.print("Ålder:");
+		System.out.println(ålder);
+		System.out.print("Adress:");
+		System.out.println(adress);
+		System.out.println(postnummer +" "+ stad);
+		System.out.print("Telefonnummer:");
+		System.out.print(Telefonnummer);
 		
 		
 		
