@@ -11,8 +11,22 @@ public class Läxa {
 		System.out.println("Skriv in 10 olika heltal");
 		
 		int tal1 = input.nextInt();
+		int min = tal1;
+		int max = tal1;
+		
 		int tal2 = input.nextInt();
+		if(tal2 > max);{
+			max = tal2;
+		}
+		if(tal2 < min);{
+			min = tal2
+		}
+		
+		
 		int tal3 = input.nextInt();
+		
+		
+		
 		int tal4 = input.nextInt();
 		int tal5 = input.nextInt();
 		int tal6 = input.nextInt();
@@ -21,12 +35,14 @@ public class Läxa {
 		int tal9 = input.nextInt();
 		int tal10 = input.nextInt();
 		
-		int max = 99999999;
-		int min = 99999999;
+		int max = 
+		int min = 
 		
-		if(tal1 > max);{
+		if(tal1);{
 			System.out.println();
 		}
+			
+
 		
 	
 		
