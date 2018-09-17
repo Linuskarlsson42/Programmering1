@@ -60,11 +60,26 @@ public class Läxa {
 		if(n8 < min) {
 			min = n8;
 		}
+		int n9 = input.nextInt();
+		if(n9 > max) {
+			max = n9;
+		}
+		if(n9 < min) {
+			min = n9;
+		}
+		int n10 = input.nextInt();
+		if(n10 > max) {
+			max = n10;
+		}
+		if(n10 < min) {
+			min = n10;
+		}
 		
+		double medel = (n1 + n2 + n3 + n4 + n5 + n6 + n7 + n8 + n9 + n10)/10;
 		
-		
-		System.out.println(max);
-		System.out.println(min);
+		System.out.println("högst:   " + max);
+		System.out.println("lägst:   " + min);
+		System.out.println("medelvärdet är:   " + medel);
 	}
 
 }
