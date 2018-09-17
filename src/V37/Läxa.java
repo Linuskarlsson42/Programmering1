@@ -86,4 +86,4 @@ public class Läxa {
 		System.out.println("medelvärdet är:   " + medel);
 	}
 
-}
+}//end
