@@ -75,10 +75,12 @@ public class Läxa {
 			min = n10;
 		}
 		
-		double medel = (n1 + n2 + n3 + n4 + n5 + n6 + n7 + n8 + n9 + n10)/10;
 		
 		System.out.println("högst:   " + max);
 		System.out.println("lägst:   " + min);
+		
+		double medel = (n1 + n2 + n3 + n4 + n5 + n6 + n7 + n8 + n9 + n10)/10;
+
 		System.out.println("medelvärdet är:   " + medel);
 	}
 
