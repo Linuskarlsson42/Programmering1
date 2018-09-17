@@ -7,6 +7,8 @@ public class Läxa {
 		
 		Scanner input = new Scanner(System.in);
 		
+		System.out.println("skriv in 10 heltal:");
+		
 		int n1 = input.nextInt();
 		int max = n1;
 		int min = n1;
