@@ -23,18 +23,32 @@ public class uppgifter_v38 {
 		for (int i = 19; i > 0; i--) {
 			System.out.print(i + " ");
 		}	
-		//GÖR OM GÖR RÄTT
+		
 			System.out.println();
 			System.out.println("uppgift 4:");
 			System.out.println("skriv ett jämnt heltal under 10");
 			int tal = input.nextInt();
-		for (int i = tal; tal < 10; tal++) {
-			for (int j = 0; j < 10; j++) {
-				System.out.print(tal * j + " ");
+		for (int i = 1; i <= 10; i++) {
+				System.out.print(tal * i + " ");
+		}	
+		
+		
+			
+		System.out.println();
+		System.out.println("Uppgift 7:");
+		for (int i = 1; i < 100; i++) {
+			for (int j = 0; j < i; j++) {
+				System.out.print("x ");
 				
 			}
-			
+			System.out.println();
 		}
+			
+		
+			
+			
+		
+		
 		
 	}
 
