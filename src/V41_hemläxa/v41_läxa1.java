@@ -80,6 +80,11 @@ public class v41_läxa1 {
 			case 'ä':
 			case 'ö':
 			case ' ':
+			case '!':
+			case '?':
+			case '.':
+			case ',':
+			
 				sj += str.charAt(i);
 			}
 			
