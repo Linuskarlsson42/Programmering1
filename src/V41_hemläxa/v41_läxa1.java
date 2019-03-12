@@ -5,46 +5,49 @@ import java.util.Scanner;
 public class v41_läxa1 {
 	public static void main(String[] args) {
 		Scanner input = new Scanner(System.in);
-		System.out.println("allt inom // är programen, ta bort för att köra");
-		
-		//double radius = input.nextDouble();
-		//System.out.println(volume(radius));
-		
-		//String in = input.nextLine();
-		//System.out.println(reverse(in));
-		
-		//String str = input.nextLine();
-		//char c = input.next().charAt(0);
-		//System.out.println(count(str, c));
-		
-		//String str = input.nextLine();
-		//System.out.println(sjorovare(str));
-		
-		
-	}//end
+		System.out.println("allt inom // är programen, ta bort // för att köra");
+
+		// double radius = input.nextDouble();
+		// System.out.println(volume(radius));
+
+		// String in = input.nextLine();
+		// System.out.println(reverse(in));
+
+		// String str = input.nextLine();
+		// char c = input.next().charAt(0);
+		// System.out.println(count(str, c));
+
+		// String str = input.nextLine();
+		// System.out.println(sjorovare(str));
+
+	}// end
+
 	public static double volume(double radius) {
-		radius = (4*3.14*radius*radius*radius)/3;
+		radius = (4 * 3.14 * radius * radius * radius) / 3;
 		return radius;
-	}//end
+	}// end
+
 	public static String reverse(String in) {
 		String str = "";
-		for (int i = in.length() -1; i >= 0; i--) {
+		for (int i = in.length() - 1; i >= 0; i--) {
 			str += in.charAt(i);
 		}
-		return str;	
-	}//end
+		return str;
+	}// end
+
 	public static int count(String str, char c) {
 		int b = 0;
-		for (int i = str.length() -1; i >= 0; i--) {
-			if(str.charAt(i) == c) {
+		for (int i = str.length() - 1; i >= 0; i--) {
+			if (str.charAt(i) == c) {
 				b++;
 			}
 		}
 		return b;
-	}//end
+	}// end
+
 	public static String sjorovare(String str) {
 		String sj = "";
-		
+
 		for (int i = 0; i < str.length(); i++) {
 			switch (str.toLowerCase().charAt(i)) {
 			case 'b':
@@ -84,14 +87,12 @@ public class v41_läxa1 {
 			case '?':
 			case '.':
 			case ',':
-			
+
 				sj += str.charAt(i);
 			}
-			
-			
+
 		}
 		return sj;
 	}
-	
-	
-}//end
+
+}// end

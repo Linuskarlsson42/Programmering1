@@ -10,8 +10,9 @@ public class spavanca {
 		
 		int H = input.nextInt();
 		int M = input.nextInt();
+		int T = input.nextInt();
 		
-		M = (M - 45);
+		M = (M - T);
 		
 		if(H == 0) {
 			H = 23;
