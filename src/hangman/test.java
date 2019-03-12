@@ -2,6 +2,7 @@ package hangman;
 
 import java.util.Scanner;
 
+
 public class test {
 
 	static HangmanConsoleWindow hrw = new HangmanConsoleWindow();
@@ -34,6 +35,7 @@ public class test {
 		TexttoCharArray();
 		Guess();
 		CharstoLine();
+		hangman();
 	}
 
 	private static void TexttoCharArray() {
@@ -71,8 +73,7 @@ public class test {
 			if (str == guessString) {
 				hrw.println("yippie! Bra Jobbat!");
 				hrw.println(str);
-			}
-			else {
+			} else {
 				lives = 0;
 			}
 		}
@@ -84,4 +85,40 @@ public class test {
 
 	}
 
+	private static void hangman() {
+		switch (lives) {
+		case 9:
+
+			break;
+		case 8:
+
+			break;
+		case 7:
+
+			break;
+		case 6:
+
+			break;
+		case 5:
+
+			break;
+		case 4:
+
+			break;
+		case 3:
+
+			break;
+		case 2:
+
+			break;
+		case 1:
+
+			break;
+		case 0:
+
+			break;
+
+		}
+
+	}
 }
