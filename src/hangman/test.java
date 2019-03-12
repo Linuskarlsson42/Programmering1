@@ -5,48 +5,81 @@ import java.util.Scanner;
 public class test {
 
 	static HangmanConsoleWindow hrw = new HangmanConsoleWindow();
-	
+
 	static char[] wordtochar = new char[0];
 	static char[] lines = new char[0];
-	
+
 	static Scanner sc = new Scanner(System.in);
-	
+
+	static String guessString;
+	static String str;
+	static char option;
+	static char guessChar;
+	static int lives = 10;
+
 	public static void main(String[] args) {
-/*
- * en metod som tar in ett ord och gör om varje bokstav till ett -
- * dela upp stringen i en char array  text to char array
- * en array med - = antal bokstäver som ordet har
- * 
- * 
- */
+		/*
+		 * en metod som tar in ett ord och gör om varje bokstav till ett - dela upp
+		 * stringen i en char array text to char array en array med - = antal bokstäver
+		 * som ordet har
+		 * 
+		 * 
+		 */
 		boolean exit = false;
 		hrw.println("Hej och välkomen till hänga gubbe");
 		hrw.println("Skriv in ett hämligt ord!");
-		String Word = hrw.nextString();
+		str = hrw.nextString();
 		hrw.clear();
-		
-		while(!exit) {
-			
-		}
-		TexttoCharArray(Word);
-		CheckIndexArray();
+
+		TexttoCharArray();
+		Guess();
 		CharstoLine();
+		ReplaceLinesToChars();
 	}
-	
-	private static void TexttoCharArray(String word) {
-		for (int i = 0; i < word.length(); i++) {
-			wordtochar[i] = word.charAt(i);
+
+	private static void TexttoCharArray() {
+		for (int i = 0; i < str.length(); i++) {
+			wordtochar[i] = str.charAt(i);
 		}
 	}
-	
-	
-	private static void CheckIndexArray() {
-		
-	}
-	
+
 	private static void CharstoLine() {
-		
+		for (int i = 0; i < str.length(); i++) {
+			lines[i] = '-';
+		}
 	}
-	
-	
+
+	private static void Guess() {
+		hrw.println("vill du gissa på:");
+		hrw.print("A. bokstav B. hela ordet");
+		option = hrw.nextChar();
+
+		if (option == 'A') {
+			guessChar = hrw.nextChar();
+			for (int i = 0; i < str.length(); i++) {
+				if (wordtochar[i] == guessChar) {
+					lines[i] = guessChar;
+				}
+			}
+		}
+
+		else if (option == 'B') {
+			guessString = hrw.nextString();
+			if (str == guessString) {
+				hrw.println("yippie! Bra Jobbat!");
+				hrw.println(str);
+			}
+		}
+
+		else {
+			hrw.println("Du skrev in fel dumbom!");
+			Guess();
+		}
+
+	}
+
+	private static void ReplaceLinesToChars() {
+
+	}
+
 }
