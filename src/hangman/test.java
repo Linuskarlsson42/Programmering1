@@ -34,7 +34,6 @@ public class test {
 		TexttoCharArray();
 		Guess();
 		CharstoLine();
-		ReplaceLinesToChars();
 	}
 
 	private static void TexttoCharArray() {
@@ -60,6 +59,10 @@ public class test {
 				if (wordtochar[i] == guessChar) {
 					lines[i] = guessChar;
 				}
+
+				else {
+					lives--;
+				}
 			}
 		}
 
@@ -69,16 +72,15 @@ public class test {
 				hrw.println("yippie! Bra Jobbat!");
 				hrw.println(str);
 			}
+			else {
+				lives = 0;
+			}
 		}
 
 		else {
 			hrw.println("Du skrev in fel dumbom!");
 			Guess();
 		}
-
-	}
-
-	private static void ReplaceLinesToChars() {
 
 	}
 
