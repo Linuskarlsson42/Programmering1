@@ -17,8 +17,8 @@ public class v41_läxa1 {
 		// char c = input.next().charAt(0);
 		// System.out.println(count(str, c));
 
-		// String str = input.nextLine();
-		// System.out.println(sjorovare(str));
+		//String str = input.nextLine();
+		//System.out.println(sjorovare(str));
 
 	}// end
 

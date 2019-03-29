@@ -1,6 +1,9 @@
 package hangman;
 
+import java.io.PushbackReader;
 import java.util.Scanner;
+
+import com.sun.org.apache.bcel.internal.generic.PUSH;
 
 public class test {
 
@@ -18,30 +21,45 @@ public class test {
 	static char guessChar;
 	static int lives = 10;
 	static boolean exit;
-	static boolean exitII;
 
 	public static void main(String[] args) {
-		
-			
+		exit = false;
 		hrw.println("Hej och välkomen till hänga gubbe");
 		hrw.println("Skriv in ett hemligt ord!");
 		str = hrw.nextString();
-
-		
-		
+		str.toLowerCase();
 		hrw.clear();
 		TexttoCharArray();
 		CharstoLine();
+		
+		while(!exit) {
 			Guess();
+			hrw.println(hej);
+			
+		}
 		
 	}
 
+	/**
+	 * 
+	 * Detta är en metod som tar in Strängen str och arrayen wordtochar och delar in
+	 * str i arrayen som chars i respektive platser
+	 * 
+	 * 
+	 */
 	private static void TexttoCharArray() {
 		wordtochar = new char[str.length()];
 		for (int i = 0; i < str.length(); i++) {
 			wordtochar[i] = str.charAt(i);
 		}
 	}
+
+	/**
+	 * 
+	 * Denna metod gör om bokstäverna i str till streck likamed antal bokstäver i
+	 * str den består alltså enbar består av en massa streck
+	 * 
+	 */
 
 	private static void CharstoLine() {
 		lines = new char[str.length()];
@@ -51,43 +69,45 @@ public class test {
 
 	}
 
+	/**
+	 * Denna metod hanterar gissningar, först frågar den om du vill gissa på en
+	 * bokstav eller hela ordet
+	 * 
+	 * 
+	 */
+
 	private static void Guess() {
-		
 		hrw.println("vill du gissa på:");
 		hrw.print("a. bokstav b. hela ordet");
 		option = hrw.nextChar();
 		hrw.clear();
 
 		if (option == 'a') {
-			
-			
-			
+
 			guessChar = hrw.nextChar();
 			for (int i = 0; i < str.length(); i++) {
-				if (guessChar == wordtochar[i]) {
+				if (wordtochar[i] == guessChar) {
 					lines[i] = guessChar;
 					hrw.clear();
-					hrw.println("Rätt!");
 					hej = new String(lines);
-					hrw.print(hej);
-					Guess();
+					lives++;
+					
 
 				}
-				
-				
-				else {
-					lives--;
-					hangman();
-				}
+
 			}
+			lives--;
+			hangman();
+
 		}
 
 		else if (option == 'b') {
 			guessString = hrw.nextString();
 			if (guessString == str) {
+				hrw.println("YEHaW du knug!");
+
 			} else {
-				lives = 0;
-				hangman();
+				exit = true;
 			}
 		}
 
@@ -97,8 +117,6 @@ public class test {
 		}
 
 	}
-	
-
 
 	private static void hangman() {
 		switch (lives) {
