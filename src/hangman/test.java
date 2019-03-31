@@ -20,10 +20,10 @@ public class test {
 	static char option;
 	static char guessChar;
 	static int lives = 10;
-	static boolean exit;
+	static boolean exit = false;
 
 	public static void main(String[] args) {
-		exit = false;
+
 		hrw.println("Hej och välkomen till hänga gubbe");
 		hrw.println("Skriv in ett hemligt ord!");
 		str = hrw.nextString();
@@ -31,13 +31,14 @@ public class test {
 		hrw.clear();
 		TexttoCharArray();
 		CharstoLine();
-		
-		while(!exit) {
+
+		while (!exit) {
 			Guess();
 			hrw.println(hej);
 			
+
 		}
-		
+
 	}
 
 	/**
@@ -71,8 +72,21 @@ public class test {
 
 	/**
 	 * Denna metod hanterar gissningar, först frågar den om du vill gissa på en
-	 * bokstav eller hela ordet
+	 * bokstav eller hela ordet 
 	 * 
+	 * Skriver du in a så tar den in nästa char som du skriver in och kollar om den finns i ordets
+	 * char array. Om den finns där så kommer den ersäta indexet i lines där bokstaven finns med den char
+	 * man skrev in och skriver ut lines. Efteråt så kontrolleras det om hej (arraylistan lines fast en string)
+	 * om den är lika med str, om den då är det så har man vunnit spelet och en lite text skrivs ut annars
+	 * händer inget.
+	 * 
+	 * om man gissa fel så tas ett liv bort och metoden hangman körs.
+	 * 
+	 * Skriver du in b så tar den in nästa string du skriver in som en gissning för hela ordet
+	 * gissar man rätt så vinner du men är det fel så förlorar du direkt.
+	 * 
+	 * Skriver man in något annat som inte är a eller b så ställs frågan om vad du vill gissa på igen och 
+	 * en liten text som ifrågasätter ditt intelekt kommer ut.
 	 * 
 	 */
 
@@ -91,7 +105,9 @@ public class test {
 					hrw.clear();
 					hej = new String(lines);
 					lives++;
-					
+					if (hej.equals(str)) {
+						hrw.println("Du van!" + "ordet var: " + hej);
+					 }
 
 				}
 
@@ -103,8 +119,9 @@ public class test {
 
 		else if (option == 'b') {
 			guessString = hrw.nextString();
-			if (guessString == str) {
-				hrw.println("YEHaW du knug!");
+			if (guessString.equals(str)) {
+				hrw.println("Du van! " + "ordet var: " + hej);
+				exit = true;
 
 			} else {
 				exit = true;
@@ -213,7 +230,7 @@ public class test {
 			hrw.println(" \\     o      /");
 			hrw.println("  \\          /   ");
 			hrw.println("   \\________/    ");
-
+			hrw.println("du död ");
 			break;
 
 		}
