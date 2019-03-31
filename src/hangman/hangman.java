@@ -1,11 +1,8 @@
 package hangman;
 
-import java.io.PushbackReader;
 import java.util.Scanner;
 
-import com.sun.org.apache.bcel.internal.generic.PUSH;
-
-public class test {
+public class hangman {
 
 	static HangmanConsoleWindow hrw = new HangmanConsoleWindow();
 
@@ -34,7 +31,6 @@ public class test {
 
 		while (!exit) {
 			Guess();
-			hrw.println(hej);
 			
 
 		}
@@ -42,11 +38,8 @@ public class test {
 	}
 
 	/**
-	 * 
 	 * Detta är en metod som tar in Strängen str och arrayen wordtochar och delar in
 	 * str i arrayen som chars i respektive platser
-	 * 
-	 * 
 	 */
 	private static void TexttoCharArray() {
 		wordtochar = new char[str.length()];
@@ -72,27 +65,29 @@ public class test {
 
 	/**
 	 * Denna metod hanterar gissningar, först frågar den om du vill gissa på en
-	 * bokstav eller hela ordet 
+	 * bokstav eller hela ordet
 	 * 
-	 * Skriver du in a så tar den in nästa char som du skriver in och kollar om den finns i ordets
-	 * char array. Om den finns där så kommer den ersäta indexet i lines där bokstaven finns med den char
-	 * man skrev in och skriver ut lines. Efteråt så kontrolleras det om hej (arraylistan lines fast en string)
-	 * om den är lika med str, om den då är det så har man vunnit spelet och en lite text skrivs ut annars
-	 * händer inget.
+	 * Skriver du in a så tar den in nästa char som du skriver in och kollar om den
+	 * finns i ordets char array. Om den finns där så kommer den ersäta indexet i
+	 * lines där bokstaven finns med den char man skrev in och skriver ut lines.
+	 * Efteråt så kontrolleras det om hej (arraylistan lines fast en string) om den
+	 * är lika med str, om den då är det så har man vunnit spelet och en lite text
+	 * skrivs ut annars händer inget.
 	 * 
 	 * om man gissa fel så tas ett liv bort och metoden hangman körs.
 	 * 
-	 * Skriver du in b så tar den in nästa string du skriver in som en gissning för hela ordet
-	 * gissar man rätt så vinner du men är det fel så förlorar du direkt.
+	 * Skriver du in b så tar den in nästa string du skriver in som en gissning för
+	 * hela ordet gissar man rätt så vinner du men är det fel så förlorar du direkt.
 	 * 
-	 * Skriver man in något annat som inte är a eller b så ställs frågan om vad du vill gissa på igen och 
-	 * en liten text som ifrågasätter ditt intelekt kommer ut.
+	 * Skriver man in något annat som inte är a eller b så ställs frågan om vad du
+	 * vill gissa på igen och en liten text som ifrågasätter ditt intelekt kommer
+	 * ut.
 	 * 
 	 */
 
 	private static void Guess() {
 		hrw.println("vill du gissa på:");
-		hrw.print("a. bokstav b. hela ordet");
+		hrw.print("a. bokstav b. hela ordet ");
 		option = hrw.nextChar();
 		hrw.clear();
 
@@ -105,9 +100,12 @@ public class test {
 					hrw.clear();
 					hej = new String(lines);
 					lives++;
+					hrw.println(hej);
 					if (hej.equals(str)) {
-						hrw.println("Du van!" + "ordet var: " + hej);
-					 }
+						hrw.clear();
+						hrw.println("Du van! " + "ordet var: " + hej);
+						exit = true;
+					}
 
 				}
 
@@ -120,11 +118,13 @@ public class test {
 		else if (option == 'b') {
 			guessString = hrw.nextString();
 			if (guessString.equals(str)) {
-				hrw.println("Du van! " + "ordet var: " + hej);
+				hrw.clear();
+				hrw.println("Du van! " + "ordet var: " + guessString);
 				exit = true;
 
 			} else {
-				exit = true;
+				lives = 0;
+				hangman();
 			}
 		}
 
@@ -134,6 +134,11 @@ public class test {
 		}
 
 	}
+
+	/*
+	 * Denna metod kollar hur många liv du har och beroende på hur mycket du har
+	 * skriver den ut olika bilder som representrar hur många gissningar du har kvar
+	 */
 
 	private static void hangman() {
 		switch (lives) {
@@ -145,7 +150,7 @@ public class test {
 			hrw.println("| |");
 			hrw.println("| |");
 			hrw.println("| |");
-			Guess();
+
 			break;
 		case 8:
 			hrw.println("   _______)___");
@@ -155,7 +160,7 @@ public class test {
 			hrw.println("| |");
 			hrw.println("| |");
 			hrw.println("| |");
-			Guess();
+
 			break;
 		case 7:
 			hrw.println("   _______)___");
@@ -165,7 +170,7 @@ public class test {
 			hrw.println("| |");
 			hrw.println("| |");
 			hrw.println("| |");
-			Guess();
+
 			break;
 		case 6:
 			hrw.println("   _______)___");
@@ -175,7 +180,7 @@ public class test {
 			hrw.println("| |");
 			hrw.println("| |");
 			hrw.println("| |");
-			Guess();
+
 			break;
 		case 5:
 			hrw.println("   _______)___");
@@ -185,7 +190,7 @@ public class test {
 			hrw.println("| |");
 			hrw.println("| |");
 			hrw.println("| |");
-			Guess();
+
 			break;
 		case 4:
 			hrw.println("   _______)___");
@@ -195,7 +200,7 @@ public class test {
 			hrw.println("| |");
 			hrw.println("| |");
 			hrw.println("| |");
-			Guess();
+
 			break;
 		case 3:
 			hrw.println("   _______)___");
@@ -205,10 +210,16 @@ public class test {
 			hrw.println("| |");
 			hrw.println("| |");
 			hrw.println("| |");
-			Guess();
+
 			break;
 		case 2:
-
+			hrw.println("   _______)___");
+			hrw.println("| |       |");
+			hrw.println("| |       0");
+			hrw.println("| |     >=|=<");
+			hrw.println("| |      / ");
+			hrw.println("| |");
+			hrw.println("| |");
 			break;
 		case 1:
 			hrw.println("   _______)___");
@@ -218,19 +229,19 @@ public class test {
 			hrw.println("| |      / \\");
 			hrw.println("| |");
 			hrw.println("| |");
-			Guess();
+
 			break;
 		case 0:
 
-			hrw.println("   #&%%!&¤&@@@%        ");
-			hrw.println("  |            | ");
-			hrw.println(" (   X      X   )");
-			hrw.println("  |            | ");
-			hrw.println("  |            |");
-			hrw.println(" \\     o      /");
-			hrw.println("  \\          /   ");
-			hrw.println("   \\________/    ");
-			hrw.println("du död ");
+			hrw.println("      #&%%!&¤&@@@%        ");
+			hrw.println("     |            | ");
+			hrw.println("    (   X      X   )");
+			hrw.println("     |            | ");
+			hrw.println("     |            |");
+			hrw.println("    \\     o      /");
+			hrw.println("     \\          /   ");
+			hrw.println("      \\________/    ");
+			hrw.println("        Du är död ");
 			break;
 
 		}
