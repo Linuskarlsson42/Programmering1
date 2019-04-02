@@ -31,7 +31,6 @@ public class hangman {
 
 		while (!exit) {
 			Guess();
-			
 
 		}
 
@@ -242,6 +241,7 @@ public class hangman {
 			hrw.println("     \\          /   ");
 			hrw.println("      \\________/    ");
 			hrw.println("        Du är död ");
+			exit = true;
 			break;
 
 		}
