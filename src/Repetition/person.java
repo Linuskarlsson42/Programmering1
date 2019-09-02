@@ -13,4 +13,8 @@ public class person {
 		this.age = age;
 		
 	}
+	
+	public int ageGetter(int age) {
+		return age;
+	}
 }
