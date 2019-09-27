@@ -4,7 +4,7 @@ public class uppgiftGM {
 
 	
 	public static  <T> T[] Arraylist(T[] t){
-		
+	
 		return t;
 		
 	}
