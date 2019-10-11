@@ -8,6 +8,7 @@ import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
@@ -31,34 +32,16 @@ public class skarm extends Application implements EventHandler<ActionEvent>{
 	public void start(Stage primaryStage) throws Exception {
 		// TODO Auto-generated method stub
 		
-		Group root = new Group();
+		//Group root = new Group();
+		
+		BorderPane BP = new BorderPane();
 		
 		TextField display = new TextField();
 		
-		display.setAlignment(Pos.BOTTOM_CENTER);
+		TextField output = new TextField();
 		
 		display.textProperty().set(display.textProperty().get());
 		
-		
-		root.getChildren().addAll(Gridpane(display), display);
-		
-		Scene scene = new Scene(root, 300, 300);
-			
-		primaryStage.setScene(scene);
-		
-		primaryStage.show();
-		
-	}
-
-	@Override
-	public void handle(ActionEvent event) {
-		if(event.getSource()=="1") {
-			
-		}
-		
-	}	
-	
-	public static Pane Gridpane(TextField display) {
 		GridPane numpad = new GridPane();
 		
 		String [] numpadKeys = {"1", "2", "3","+",
@@ -79,7 +62,48 @@ public class skarm extends Application implements EventHandler<ActionEvent>{
 			numpad.add(temp, i % 4, (int) Math.ceil(i/4));
 			
 		}
-		return numpad;
+		
+		BP.setTop(display);
+		BP.setCenter(numpad);
+		BP.setRight(output);
+		
+		
+		//BP.getChildren().addAll(numpad , display);
+		
+		Scene scene = new Scene(BP, 300, 300);
+
+		primaryStage.setScene(scene);
+		
+		primaryStage.show();
+		
 	}
+
+	@Override
+	public void handle(ActionEvent event) {
+		if(event.getSource()=="1") {
+			
+		}
+		
+	}	
+	
+	public static void equals(TextField display) {
+		boolean exit = true;
+		
+		int displayL = Integer.parseInt(display.textProperty().get());
+		
+		String text = display.getText();
+		
+		char[] input = new char[displayL];
+		
+		input = text.toCharArray();
+		
+		
+		
+		
+		
+	}
+
+	
+	
 	
 }
