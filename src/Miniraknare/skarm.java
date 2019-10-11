@@ -3,9 +3,11 @@ package Miniraknare;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import javafx.geometry.Pos;
 import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
@@ -19,6 +21,7 @@ import javafx.stage.Stage;
 
 public class skarm extends Application implements EventHandler<ActionEvent>{
 	
+	
 
 	public static void main(String[] args) {
 		launch();
@@ -30,7 +33,14 @@ public class skarm extends Application implements EventHandler<ActionEvent>{
 		
 		Group root = new Group();
 		
-		root.getChildren().addAll(Gridpane());
+		TextField display = new TextField();
+		
+		display.setAlignment(Pos.BOTTOM_CENTER);
+		
+		display.textProperty().set(display.textProperty().get());
+		
+		
+		root.getChildren().addAll(Gridpane(display), display);
 		
 		Scene scene = new Scene(root, 300, 300);
 			
@@ -48,16 +58,24 @@ public class skarm extends Application implements EventHandler<ActionEvent>{
 		
 	}	
 	
-	public static Pane Gridpane() {
+	public static Pane Gridpane(TextField display) {
 		GridPane numpad = new GridPane();
 		
 		String [] numpadKeys = {"1", "2", "3","+",
 								"4", "5", "6","-",
 								"7", "8", "9","*",
-								"0", "c", "=","/"
+								"0", "/"
 								};
 		for (int i = 0; i < numpadKeys.length; i++) {
+			
+			String keyText = numpadKeys[i];
+			
 			Button temp = new Button(numpadKeys[i]);
+			
+			temp.setOnAction( ElidedFormalParameter -> {
+				display.textProperty().set(display.textProperty().get() + keyText);
+				
+			});
 			numpad.add(temp, i % 4, (int) Math.ceil(i/4));
 			
 		}
