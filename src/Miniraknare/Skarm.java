@@ -3,14 +3,12 @@ package Miniraknare;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
-import javafx.geometry.Pos;
-import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
-import javafx.scene.layout.Pane;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 /*
@@ -20,7 +18,7 @@ import javafx.stage.Stage;
  */
 
 
-public class skarm extends Application implements EventHandler<ActionEvent>{
+public class Skarm extends Application implements EventHandler<ActionEvent>{
 	
 	
 
@@ -34,20 +32,30 @@ public class skarm extends Application implements EventHandler<ActionEvent>{
 		
 		//Group root = new Group();
 		
-		BorderPane BP = new BorderPane();
+		BorderPane root = new BorderPane();
 		
-		TextField display = new TextField();
+		VBox Dfield = new VBox();
+		
+		TextField input = new TextField();
 		
 		TextField output = new TextField();
 		
-		display.textProperty().set(display.textProperty().get());
+		Dfield.getChildren().addAll(input, output);
+		
+		input.textProperty().set(input.textProperty().get());
 		
 		GridPane numpad = new GridPane();
 		
-		String [] numpadKeys = {"1", "2", "3","+",
-								"4", "5", "6","-",
-								"7", "8", "9","*",
-								"0", "/"
+		/*
+		 * kod för numpad, skapar en numpad med sifrorna 0-9 och de fyra vanligaste räknestätten
+		 * 
+		 */
+		
+		String [] numpadKeys = {"1", "2", "3"," + ",
+								"4", "5", "6"," - ",
+								"7", "8", "9"," * ",
+								"0", " / ", " = ", " c ",
+								"."
 								};
 		for (int i = 0; i < numpadKeys.length; i++) {
 			
@@ -55,22 +63,36 @@ public class skarm extends Application implements EventHandler<ActionEvent>{
 			
 			Button temp = new Button(numpadKeys[i]);
 			
+			temp.setPrefSize(50, 50);
+			
 			temp.setOnAction( ElidedFormalParameter -> {
-				display.textProperty().set(display.textProperty().get() + keyText);
+		
+				//kollar om man trycker på c, clearar input när man gör så
 				
+				if (temp.textProperty().get()==" c ") {
+					input.clear();
+				}
+				
+				else if(temp.textProperty().get() == " = "){
+					Eq.Calc(input);
+				}
+				
+				else {
+					input.textProperty().set(input.textProperty().get() + keyText);
+				}
 			});
 			numpad.add(temp, i % 4, (int) Math.ceil(i/4));
 			
 		}
 		
-		BP.setTop(display);
-		BP.setCenter(numpad);
-		BP.setRight(output);
+		root.setTop(input);
+		root.setBottom(numpad);
+		root.setCenter(output);
 		
 		
 		//BP.getChildren().addAll(numpad , display);
 		
-		Scene scene = new Scene(BP, 300, 300);
+		Scene scene = new Scene(root, 300, 300);
 
 		primaryStage.setScene(scene);
 		
@@ -85,23 +107,6 @@ public class skarm extends Application implements EventHandler<ActionEvent>{
 		}
 		
 	}	
-	
-	public static void equals(TextField display) {
-		boolean exit = true;
-		
-		int displayL = Integer.parseInt(display.textProperty().get());
-		
-		String text = display.getText();
-		
-		char[] input = new char[displayL];
-		
-		input = text.toCharArray();
-		
-		
-		
-		
-		
-	}
 
 	
 	
