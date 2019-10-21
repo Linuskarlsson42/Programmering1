@@ -3,29 +3,27 @@ package Miniraknare;
 import javafx.scene.control.TextField;
 
 abstract class Tangent {
-	public abstract double Calc();
-
-	public double Calc(TextField display) {
-		// TODO Auto-generated method stub
-		return 0;
-	}
+	public abstract double Calc(double a, double b);
 
 }
 
-class Eq extends Tangent{
+abstract class Eq extends Tangent{
 
-	@Override
-	public double Calc(TextField display) {
-		// TODO Auto-generated method stub
+	public static double Calc(TextField input) {
+		
+		 /*ta in input från skarm
+		  * split för att dela upp de i en sträng arr emellan tal o tecken 
+		  * 
+		  */
+		
+		int iL = Integer.parseInt(input.getText());
+		String [] inputArr = new String[iL];
+		
+		
+		 
 		return 0;
-	}
-
-	@Override
-	public double Calc() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
+	 }
+	
 }
 
 	
