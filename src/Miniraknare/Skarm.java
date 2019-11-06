@@ -20,7 +20,7 @@ import javafx.stage.Stage;
 
 public class Skarm extends Application implements EventHandler<ActionEvent>{
 	
-	
+	static TextField output;
 
 	public static void main(String[] args) {
 		launch();
@@ -38,7 +38,10 @@ public class Skarm extends Application implements EventHandler<ActionEvent>{
 		
 		TextField input = new TextField();
 		
-		TextField output = new TextField();
+		output = new TextField();
+		
+		input.setEditable(false);
+		output.setEditable(false);
 		
 		Dfield.getChildren().addAll(input, output);
 		
@@ -71,10 +74,12 @@ public class Skarm extends Application implements EventHandler<ActionEvent>{
 				
 				if (temp.textProperty().get()==" c ") {
 					input.clear();
+					output.clear();
 				}
 				
 				else if(temp.textProperty().get() == " = "){
-					Eq.Calc(input);
+					Equals.Inputs(input);
+					input.clear();
 				}
 				
 				else {
@@ -100,6 +105,10 @@ public class Skarm extends Application implements EventHandler<ActionEvent>{
 		
 	}
 
+	public static void outputS(String Aw) {
+		output.setText(Aw);
+	}
+	
 	@Override
 	public void handle(ActionEvent event) {
 		if(event.getSource()=="1") {
