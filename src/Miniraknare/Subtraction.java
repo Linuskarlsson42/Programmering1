@@ -10,6 +10,12 @@ public class Subtraction extends Tangent{
 		return Aw;
 		
 	}
+
+	@Override
+	public double OneCalc(double a) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
 	
 
 }

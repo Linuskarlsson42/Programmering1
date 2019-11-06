@@ -11,6 +11,7 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
+
 /*
  * när jag trycker på en knapp ska den anropa tangent classen, kolla vilken knapp det var jag tryckte (1, 2,
  * +,- etc) och köra relevant metod och skicka tillbaka informationen tillbaka till skärm och skriva ut
@@ -57,8 +58,8 @@ public class Skarm extends Application implements EventHandler<ActionEvent>{
 		String [] numpadKeys = {"1", "2", "3"," + ",
 								"4", "5", "6"," - ",
 								"7", "8", "9"," * ",
-								"0", " / ", " = ", " c ",
-								"."
+								"9", "0", " c ", " / ",
+								".", " \u221A ", " % ", " = "
 								};
 		for (int i = 0; i < numpadKeys.length; i++) {
 			

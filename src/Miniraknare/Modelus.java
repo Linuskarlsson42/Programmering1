@@ -1,15 +1,10 @@
 package Miniraknare;
 
-public class Addition extends Tangent{
-
-	public static double Aw;
+public class Modelus extends Tangent{
 
 	@Override
 	public double Calc(double a, double b) {
-		double Aw = (a + b);
-		
-		
-		
+		double Aw = a % b;
 		return Aw;
 	}
 
@@ -18,7 +13,5 @@ public class Addition extends Tangent{
 		// TODO Auto-generated method stub
 		return 0;
 	}
-	
-	
-	
+
 }

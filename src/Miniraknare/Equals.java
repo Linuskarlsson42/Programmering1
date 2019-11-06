@@ -43,6 +43,21 @@ public class Equals {
 				
 			}
 			
+			else if(content[i].equals("\u221A")) {
+				
+				Tangent c = new Sqrt();
+				
+				content[0] = Double.toString(c.OneCalc(Double.parseDouble(content[i+1])));
+			}
+			
+			else if(content[i].equals("%")) {
+				
+				Tangent c = new Modelus();
+				
+				content[0] = Double.toString(c.Calc(Double.parseDouble(content[0]), Double.parseDouble(content[i+1])));
+				
+			}
+			
 		}
 		out(content);
 		
